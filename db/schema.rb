@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160711212115) do
+ActiveRecord::Schema.define(version: 20160712014554) do
 
   create_table "users", force: :cascade do |t|
     t.string   "uid"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 20160711212115) do
     t.string   "name"
     t.string   "token"
     t.string   "nickname"
+    t.string   "image"
+    t.string   "email"
   end
 
 end

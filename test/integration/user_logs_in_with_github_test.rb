@@ -27,11 +27,6 @@ class UserLogsInWithGithubTest < ActionDispatch::IntegrationTest
       credentials: {
         token: "finn"
                     },
-      # extra: {
-      #   raw_info: {
-      #     avatar_url: "https://avatars.githubusercontent.com/u/14022835?v=3"
-      #   }
-      #         }
       })
   end
 end
