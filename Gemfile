@@ -17,12 +17,12 @@ gem 'figaro'
 gem 'faraday'
 
 
-group :development, :test do
-  gem 'byebug'
-  gem 'capybara'
-  gem "minitest-rails-capybara"
+group :development do
+  gem "spring"
 end
 
-group :development do
-  gem 'spring'
+group :development, :test do
+  gem "minitest-rails-capybara"
+  gem "pry", :require => "pry"
+  gem 'capybara'
 end
