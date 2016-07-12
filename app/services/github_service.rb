@@ -16,6 +16,16 @@ class GithubService
     parse(response)
   end
 
+  def get_starred_repos
+    response = @connection.get('user/starred')
+    parse(response)
+  end
+
+  def get_user_repos
+    response = @connection.get('user/repos')
+    parse(response)
+  end
+
   def parse(response)
     JSON.parse(response.body)
   end

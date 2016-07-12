@@ -5,7 +5,7 @@
 <h1>Followers</h1>
 
 <% @followers.each do |follower| %>
-<h4><%= link_to follower.login, follower.url %></h4>
+<h4><%= link_to follower.login, follower.html_url %></h4>
 <img src="<%= follower.avatar_url %>">
 <% end %>
 
@@ -13,6 +13,22 @@
 <h1>Following</h1>
 
 <% @following.each do |following| %>
-<h4><%= link_to following.login, following.url %></h4>
+<h4><%= link_to following.login, following.html_url %></h4>
 <img src="<%= following.avatar_url %>">
 <% end %>
+
+<h1>Starred Repos</h1>
+
+<% @starred_repos.each do |repo| %>
+<h4><%= link_to repo.name, repo.html_url %></h4>
+<p> <%= repo.owner['login'] %>  </p>
+<% end %>
+
+<h1>My Repos</h1>
+
+<ul>
+<% @repos.each do |repo| %>
+<li><%= link_to repo.name, repo.html_url %></li>
+<% end %>
+
+</ul>
