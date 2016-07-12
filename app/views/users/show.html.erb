@@ -1,0 +1,18 @@
+<h1><%= @user.name %></h1>
+<h4><%= @user.nickname %></h4>
+<img src="<%= @user.image %>">
+
+<h1>Followers</h1>
+
+<% @followers.each do |follower| %>
+<h4><%= link_to follower.login, follower.url %></h4>
+<img src="<%= follower.avatar_url %>">
+<% end %>
+
+
+<h1>Following</h1>
+
+<% @following.each do |following| %>
+<h4><%= link_to following.login, following.url %></h4>
+<img src="<%= following.avatar_url %>">
+<% end %>
