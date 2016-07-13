@@ -39,6 +39,7 @@ GEM
     addressable (2.4.0)
     arel (6.0.3)
     builder (3.2.2)
+    byebug (9.0.5)
     capybara (2.7.1)
       addressable
       mime-types (>= 1.16)
@@ -191,6 +192,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  byebug
   capybara
   coffee-rails (~> 4.1.0)
   faraday
