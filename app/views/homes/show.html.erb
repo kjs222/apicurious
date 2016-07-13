@@ -28,7 +28,13 @@
     <% end %>
 </div>
 
-<div class="user-repos tab col-sm-9">
+<ul class="col-sm-9 col-sm-offset-3">
+  <li class="showOne" target="Repos"><a href="javascript:void(0)">Repos</a></li>
+  <li class="showOne" target="MyActivity"><a href="javascript:void(0)">My Activity</a></li>
+  <li class="showOne" target="OtherActivity"><a href="javascript:void(0)">Other Activity</a></li>
+</ul>
+
+<div id="tabRepos" class="user-repos tab col-sm-9">
 <h3>My Repos</h3>
 
   <table class="table">
@@ -43,12 +49,12 @@
   </table>
 </div>
 
-<div class="my-activity tab col-sm-9">
+<div id="tabMyActivity" class="my-activity tab col-sm-9">
   <h3>My Recent Commits</h3>
   <%= render partial: "shared/shared_activity_list", locals: {activities: @activities} %>
 </div>
 
-<div class="other-activity tab col-sm-9">
+<div id="tabOtherActivity" class="other-activity tab col-sm-9">
   <h3>Other People's Commits</h3>
     <%= render partial: "shared/shared_activity_list", locals: {activities: @others_activities} %>
 </div>
