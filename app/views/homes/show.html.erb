@@ -41,7 +41,7 @@
   <td>
     <%= link_to repo.name, repo.html_url, class: "repo-links" %>
     <p> <%= repo.description %></p>
-    <p> <%= days_from_today repo.updated_at %> ago </p>
+    <p> Updated <%= days_from_today repo.updated_at %> ago </p>
   </td>
 </tr>
 <% end %>
@@ -51,41 +51,36 @@
 
 
 <div class="my-activity tab col-sm-9">
-<h3>My Activity</h3>
+<h3>My Recent Commits</h3>
 
-<ul>
+<table class="table">
 <% @activities.each do |activity| %>
-  <% if activity.type == "PushEvent" %>
-    <li>Commit for:
-      <a href="https://github.com/<%=activity.repo['name']%>/commits?author?<%=activity.actor['login']%>"> <%= activity.repo['name'] %> </a>by <%= current_user.nickname %> </li>
-  <% elsif activity.type == "PullRequestEvent" %>
-        <li>Pull Request for:<a href="<%=activity.payload['pull_request']['html_url']%>"> <%= activity.repo['name'] %> </a>by <%= current_user.nickname %> </li>
-  <% else %>
-    <li> <%= activity.type %> for:
-        <a href="https://github.com/<%=activity.repo['name']%>"> <%= activity.repo['name'] %> </a></li>
-  <%end  %>
-
+<tr>
+  <td>
+    <a href="https://github.com/<%=activity.repo['name']%>/commits?author?<%=activity.actor['login']%>" class="repo-links"> <%= activity.repo['name'] %> </a>
+    <p> by <%= current_user.nickname %></p>
+    <p><%= activity.payload["commits"].first["message"]%></p>
+    <p> <%=days_from_today activity.created_at %> ago </p>
+  </td>
+</tr>
 <% end %>
-
-</ul>
+</table>
 </div>
 
 <div class="other-activity tab col-sm-9">
-  <h3>Activity for People I'm Following</h3>
-  <ul>
+  <h3>Other People's Commits</h3>
+  <table class="table">
     <% @others_activities.each do |activity| %>
-      <% if activity.type == "PushEvent" %>
-        <li>Commit for:
-          <a href="https://github.com/<%=activity.repo['name']%>/commits?author?<%=activity.actor['login']%>"> <%= activity.repo['name'] %> </a>by <%= activity.actor["login"] %> </li>
-      <% elsif activity.type == "PullRequestEvent" %>
-            <li>Pull Request for:<a href="<%=activity.payload['pull_request']['html_url']%>"> <%= activity.repo['name'] %> </a>by <%= activity.actor["login"] %> </li>
-      <% else %>
-        <li> <%= activity.type %> for:
-            <a href="https://github.com/<%=activity.repo['name']%>"> <%= activity.repo['name'] %> </a></li>
-      <%end  %>
-
+    <tr>
+      <td>
+        <a href="https://github.com/<%=activity.repo['name']%>/commits/<%=activity.payload['commits'].first['sha']%>" class="repo-links"> <%= activity.repo['name']%></a>
+        <p> by <%= activity.actor["login"]%></p>
+        <p> <%= activity.payload["commits"].first["message"]%></p>
+        <p> <%=days_from_today activity.created_at %> ago </p>
+      </td>
+    </tr>
     <% end %>
-  </ul>
+  </table>
 </div>
 <% end %>
 </div>

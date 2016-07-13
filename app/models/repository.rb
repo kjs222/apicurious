@@ -5,13 +5,14 @@ class Repository < OpenStruct
   end
 
   def self.starred_repos(user)
-    starred_repos_hash = service(user).get_starred_repos
-    starred_repos_hash.map {|repo| Repository.new(repo)}
+    starred_hash = service(user).get_starred_repos
+    starred_objs = starred_hash.map {|repo| Repository.new(repo)}
   end
 
   def self.user_repos(user)
-    user_repos_hash = service(user).get_user_repos
-    user_repos_hash.map {|repo| Repository.new(repo)}
+    repo_hash = service(user).get_user_repos
+    repo_objs = repo_hash.map {|repo| Repository.new(repo)}
+    repo_objs.sort_by { |k| k["updated_at"] }.reverse
   end
 
   def self.starred_repos_count(user)
