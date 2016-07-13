@@ -9,7 +9,7 @@ describe ActivityService do
 
   context '#activity' do
     it "returns a list of activity for the current user" do
-      VCR.use_cassette("my_activty") do
+      VCR.use_cassette("my_activity") do
         activities = @service.get_user_activity
         activity = activities.first
 
