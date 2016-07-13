@@ -1,8 +1,6 @@
 <div class="container">
 
-
 <% if current_user %>
-<%#= link_to "See your GitHub Profile", user_path(current_user) %>
 
 <div class="user-info col-sm-3">
 
@@ -37,12 +35,18 @@
 <div class="user-repos col-sm-9">
 <h3>My Repos</h3>
 
-<ul>
+<table class="table">
 <% @repos.each do |repo| %>
-<li><%= link_to repo.name, repo.html_url %></li>
+<tr>
+  <td>
+    <%= link_to repo.name, repo.html_url, class: "repo-links" %>
+    <p> <%= repo.description %></p>
+    <p> <%= days_from_today repo.updated_at %> ago </p>
+  </td>
+</tr>
 <% end %>
 
-</ul>
+</table>
 </div>
 
 <h3>My Activity</h3>

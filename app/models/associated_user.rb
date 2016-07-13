@@ -22,6 +22,4 @@ class AssociatedUser < OpenStruct
     self.following(user).count
   end
 
-
-
 end

@@ -24,7 +24,11 @@
    height: 250px;
    width: 250px;
    border-radius: 8px;
+ }
 
+ .profile-photo.small {
+   height: 150px;
+   width: 150px;
  }
 
  .num-links>a {
@@ -34,4 +38,8 @@
 
  .num-links>p {
    text-align: center;
+ }
+
+ .repo-links {
+   font-size: 20px;
  }

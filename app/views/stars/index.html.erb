@@ -1,6 +1,14 @@
-<h1>Starred Repos</h1>
+<div class="container">
 
-<% @starred_repos.each do |repo| %>
-<h4><%= link_to repo.name, repo.html_url %></h4>
-<p> <%= repo.owner['login'] %>  </p>
-<% end %>
+  <h1>Starred Repos</h1>
+
+  <table class="table">
+    <% @starred_repos.each do |repo| %>
+    <tr>
+      <td><h4><%= link_to repo.name, repo.html_url %></h4>
+      <p>By: <%= repo.owner['login'] %>  </p></td>
+    </tr>
+  <% end %>
+  </table>
+
+</div>

@@ -18,6 +18,4 @@ class Repository < OpenStruct
     self.starred_repos(user).count
   end
 
-
-
 end

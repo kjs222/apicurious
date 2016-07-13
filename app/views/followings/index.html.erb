@@ -1,6 +1,5 @@
-<h1>Following</h1>
+<div class="container">
+  <h1>Following</h1>
 
-<% @following.each do |following| %>
-<h4><%= link_to following.login, following.html_url %></h4>
-<img src="<%= following.avatar_url %>">
-<% end %>
+  <%= render partial: 'shared/associated_user_list', locals: {associated_users: @following} %>
+</div>

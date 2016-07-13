@@ -1,0 +1,8 @@
+
+
+<% associated_users.each do |user| %>
+<div class="col-sm-3">
+<img src="<%= user.avatar_url %>" class='profile-photo small'>
+<h4><%= link_to user.login, user.html_url %></h4>
+</div>
+<% end %>
