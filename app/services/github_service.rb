@@ -40,6 +40,12 @@ class GithubService
     end.flatten
   end
 
+  def get_organizations
+    response = @connection.get("users/#{@user.nickname}/orgs")
+    parse(response)
+  end
+
+
   def parse(response)
     JSON.parse(response.body)
   end

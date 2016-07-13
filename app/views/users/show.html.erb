@@ -69,3 +69,10 @@
 <% end %>
 
 </ul>
+
+<h1>My Organizations</h1>
+<ul>
+<% @organizations.each do |organization| %>
+<li><a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>: <%=organization.description%></li>
+<% end %>
+</ul>
