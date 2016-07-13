@@ -5,12 +5,12 @@ class AssociatedUser < OpenStruct
   end
 
   def self.followers(user)
-    followers_hash = service(user).get_folllowers
+    followers_hash = service(user).get_followers
     followers_hash.map {|follower| AssociatedUser.new(follower)}
   end
 
   def self.following(user)
-    following_hash = service(user).get_folllowing
+    following_hash = service(user).get_following
     following_hash.map {|following| AssociatedUser.new(following)}
   end
 

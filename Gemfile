@@ -15,6 +15,7 @@ gem "minitest-rails"
 gem 'omniauth-github'
 gem 'figaro'
 gem 'faraday'
+gem 'rspec-rails'
 
 
 group :development do
@@ -26,4 +27,9 @@ group :development, :test do
   gem "pry", :require => "pry"
   gem 'capybara'
   gem 'byebug'
+end
+
+group :test do
+  gem 'webmock'
+  gem 'vcr'
 end
