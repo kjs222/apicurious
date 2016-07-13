@@ -1,0 +1,6 @@
+<h1>Followers</h1>
+
+<% @followers.each do |follower| %>
+<h4><%= link_to follower.login, follower.html_url %></h4>
+<img src="<%= follower.avatar_url %>">
+<% end %>

@@ -14,6 +14,10 @@ class Repository < OpenStruct
     user_repos_hash.map {|repo| Repository.new(repo)}
   end
 
+  def self.starred_repos_count(user)
+    self.starred_repos(user).count
+  end
+
 
 
 end

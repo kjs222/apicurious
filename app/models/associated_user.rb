@@ -14,4 +14,14 @@ class AssociatedUser < OpenStruct
     following_hash.map {|following| AssociatedUser.new(following)}
   end
 
+  def self.followers_count(user)
+    self.followers(user).count
+  end
+
+  def self.following_count(user)
+    self.following(user).count
+  end
+
+
+
 end

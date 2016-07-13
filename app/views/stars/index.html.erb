@@ -1,0 +1,6 @@
+<h1>Starred Repos</h1>
+
+<% @starred_repos.each do |repo| %>
+<h4><%= link_to repo.name, repo.html_url %></h4>
+<p> <%= repo.owner['login'] %>  </p>
+<% end %>

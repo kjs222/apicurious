@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get "/auth/github/callback", to: "sessions#create"
   delete "/logout", to: 'sessions#destroy', as: :logout
 
-  resources :users, only: [:show]
+
+  resources :followers, only: [:index]
+  resources :followings, only: [:index]
+  resources :stars, only: [:index]
+
 
 end
