@@ -1,0 +1,12 @@
+<table class="table">
+<% activities.each do |activity| %>
+<tr>
+  <td>
+    <%= commit_link(activity) %>
+    <p> by <%= activity.actor["login"]%></p>
+    <p><%= commit_message(activity)%></p>
+    <p> <%=days_from_today activity.created_at %> ago </p>
+  </td>
+</tr>
+<% end %>
+</table>

@@ -1,86 +1,57 @@
 <div class="container">
-
 <% if current_user %>
 
 <div class="user-info col-sm-3">
+  <img src="<%= @user.image %>", class="profile-photo">
+  <br>
+  <h2><%= @user.name %></h2>
+  <h3><%= @user.nickname %></h3>
 
-<img src="<%= @user.image %>", class="profile-photo">
-<br>
-<h2><%= @user.name %></h2>
-<h3><%= @user.nickname %></h3>
+  <div class="num-links col-sm-4">
+    <%=link_to @stats.num_followers, followers_path%>
+    <p>Followers</p>
+  </div>
 
+  <div class="num-links col-sm-4">
+    <%=link_to @stats.num_following, followings_path%>
+    <p>Following</p>
+  </div>
 
+  <div class="num-links col-sm-4">
+    <%=link_to @stats.num_stars, stars_path%>
+    <p>Starred Repos</p>
+  </div>
 
-<div class="num-links col-sm-4">
-  <%=link_to @stats.num_followers, followers_path%>
-  <p>Followers</p>
-</div>
-
-<div class="num-links col-sm-4">
-<%=link_to @stats.num_following, followings_path%>
-<p>Following</p>
-</div>
-
-<div class="num-links col-sm-4">
-<%=link_to @stats.num_stars, stars_path%>
-<p>Starred Repos</p>
-</div>
-
-<h3>My Organizations</h3>
-<% @organizations.each do |organization| %>
-<a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>
-<% end %>
+  <h3>My Organizations</h3>
+    <% @organizations.each do |organization| %>
+      <a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>
+    <% end %>
 </div>
 
 <div class="user-repos tab col-sm-9">
 <h3>My Repos</h3>
 
-<table class="table">
-<% @repos.each do |repo| %>
-<tr>
-  <td>
-    <%= link_to repo.name, repo.html_url, class: "repo-links" %>
-    <p> <%= repo.description %></p>
-    <p> Updated <%= days_from_today repo.updated_at %> ago </p>
-  </td>
-</tr>
-<% end %>
+  <table class="table">
+  <% @repos.each do |repo| %>
+    <tr><td>
+      <%= link_to repo.name, repo.html_url, class: "repo-links" %>
+      <p> <%= repo.description %></p>
+      <p> Updated <%= days_from_today repo.updated_at %> ago </p>
+    </td></tr>
+  <% end %>
 
-</table>
+  </table>
 </div>
 
-
 <div class="my-activity tab col-sm-9">
-<h3>My Recent Commits</h3>
-
-<table class="table">
-<% @activities.each do |activity| %>
-<tr>
-  <td>
-    <a href="https://github.com/<%=activity.repo['name']%>/commits?author?<%=activity.actor['login']%>" class="repo-links"> <%= activity.repo['name'] %> </a>
-    <p> by <%= current_user.nickname %></p>
-    <p><%= activity.payload["commits"].first["message"]%></p>
-    <p> <%=days_from_today activity.created_at %> ago </p>
-  </td>
-</tr>
-<% end %>
-</table>
+  <h3>My Recent Commits</h3>
+  <%= render partial: "shared/shared_activity_list", locals: {activities: @activities} %>
 </div>
 
 <div class="other-activity tab col-sm-9">
   <h3>Other People's Commits</h3>
-  <table class="table">
-    <% @others_activities.each do |activity| %>
-    <tr>
-      <td>
-        <a href="https://github.com/<%=activity.repo['name']%>/commits/<%=activity.payload['commits'].first['sha']%>" class="repo-links"> <%= activity.repo['name']%></a>
-        <p> by <%= activity.actor["login"]%></p>
-        <p> <%= activity.payload["commits"].first["message"]%></p>
-        <p> <%=days_from_today activity.created_at %> ago </p>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+    <%= render partial: "shared/shared_activity_list", locals: {activities: @others_activities} %>
 </div>
+
 <% end %>
 </div>
