@@ -1,31 +1,41 @@
+<div class="container">
+
+
 <% if current_user %>
 <%#= link_to "See your GitHub Profile", user_path(current_user) %>
 
 <div class="user-info col-sm-3">
 
-</div>
-<h1><%= @user.name %></h1>
-<h4><%= @user.nickname %></h4>
-<img src="<%= @user.image %>">
-
+<img src="<%= @user.image %>", class="profile-photo">
 <br>
-<%=link_to @followers, followers_path%>
-<p>Followers</p>
+<h2><%= @user.name %></h2>
+<h3><%= @user.nickname %></h3>
 
-<%=link_to @following, followings_path%>
+
+
+<div class="num-links col-sm-4">
+  <%=link_to @stats.num_followers, followers_path%>
+  <p>Followers</p>
+</div>
+
+<div class="num-links col-sm-4">
+<%=link_to @stats.num_following, followings_path%>
 <p>Following</p>
+</div>
 
-
-<%=link_to @starred_repos, stars_path%>
+<div class="num-links col-sm-4">
+<%=link_to @stats.num_stars, stars_path%>
 <p>Starred Repos</p>
+</div>
 
-<h1>My Organizations</h1>
+<h3>My Organizations</h3>
 <% @organizations.each do |organization| %>
 <a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>
 <% end %>
+</div>
 
-
-<h1>My Repos</h1>
+<div class="user-repos col-sm-9">
+<h3>My Repos</h3>
 
 <ul>
 <% @repos.each do |repo| %>
@@ -33,8 +43,9 @@
 <% end %>
 
 </ul>
+</div>
 
-<h1>My Activity</h1>
+<h3>My Activity</h3>
 
 <ul>
 <% @activities.each do |activity| %>
@@ -53,7 +64,7 @@
 </ul>
 
 
-<h1>Activity for People I'm Following</h1>
+<h3>Activity for People I'm Following</h3>
 
 <ul>
 <% @others_activities.each do |activity| %>
@@ -73,3 +84,4 @@
 
 
 <% end %>
+</div>
