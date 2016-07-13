@@ -1,7 +1,7 @@
 class AssociatedUser < OpenStruct
 
   def self.service(user)
-    @@service ||= GithubService.new(user)
+    @@service ||= AssociatedUserService.new(user)
   end
 
   def self.followers(user)

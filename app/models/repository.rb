@@ -1,7 +1,7 @@
 class Repository < OpenStruct
 
   def self.service(user)
-    @@service ||= GithubService.new(user)
+    @@service ||= RepoService.new(user)
   end
 
   def self.starred_repos(user)
@@ -13,7 +13,7 @@ class Repository < OpenStruct
     user_repos_hash = service(user).get_user_repos
     user_repos_hash.map {|repo| Repository.new(repo)}
   end
-  
+
 
 
 end
