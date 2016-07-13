@@ -32,7 +32,13 @@
 <% end %>
 </div>
 
-<div class="user-repos tab col-sm-9">
+<ul class="col-sm-9 col-sm-offset-3">
+  <li class="showOne" target="Repos"><a href="#">Repos</a></li>
+  <li class="showOne" target="MyActivity"><a href="#">My Activity</a></li>
+  <li class="showOne" target="OtherActivity"><a href="#">Other Activity</a></li>
+</ul>
+
+<div id="tabRepos" class="user-repos tab col-sm-9">
 <h3>My Repos</h3>
 
 <table class="table">
@@ -50,7 +56,7 @@
 </div>
 
 
-<div class="my-activity tab col-sm-9">
+<div id="tabMyActivity" class="tab col-sm-9">
 <h3>My Activity</h3>
 
 <ul>
@@ -70,7 +76,7 @@
 </ul>
 </div>
 
-<div class="other-activity tab col-sm-9">
+<div id="tabOtherActivity" class="tab col-sm-9">
   <h3>Activity for People I'm Following</h3>
   <ul>
     <% @others_activities.each do |activity| %>
