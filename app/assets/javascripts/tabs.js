@@ -1,6 +1,7 @@
 $(document).ready(function () {
   $('#tabMyActivity').hide();
   $('#tabOtherActivity').hide();
+  $('#tabOpenPR').hide();
 
   $(function(){
     $('.showOne').click(function(){
@@ -10,5 +11,4 @@ $(document).ready(function () {
       $('#tab'+$(this).attr('target')).show();
     });
   });
-
 });

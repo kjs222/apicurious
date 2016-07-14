@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def days_from_today(date)
-    distance_of_time_in_words(Date.today, date)
+    distance_of_time_in_words(Time.now, date)
   end
 
   def commit_link(activity)

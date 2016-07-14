@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="container nav">
   <% if current_user %>
     Hello, <%= current_user.name %>
     <%= link_to "Logout", logout_path, method: :delete %>
@@ -14,6 +15,7 @@
   <% else %>
     <%= link_to "Sign in with Github", github_login_path %>
   <% end %>
+  </div>
 
 <%= yield %>
 

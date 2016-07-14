@@ -23,16 +23,18 @@
   </div>
 
   <h3>My Organizations</h3>
-    <% @organizations.each do |organization| %>
-      <a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>
-    <% end %>
+  <% @organizations.each do |organization| %>
+    <a href="https://github.com/orgs/<%=organization.login%>"><%=organization.login%></a>
+  <% end %>
+
   <div id="createRepo">
+    <h3>Create A New Repo</h3>
+    <label for="repo_name">New Repo Name</label>
     <input type="text" name="repo_name" id="repo_name"></input>
-    <input type="text" name="token" id="token", value="c2165191e5ad925485b84da757b9239d79b95d12"></input>
+    <input type="hidden" name="token" id="token", value="<%=current_user.token%>"></input>
     <button type="button" name="submit-button" id="submit-button">Create Repo</button>
-
-
   </div>
+
 </div>
 
 <div class="col-sm-6 btn-group">

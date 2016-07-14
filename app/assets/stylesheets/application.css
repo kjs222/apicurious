@@ -15,7 +15,9 @@
  *= require bootstrap.min
 
  */
-
+ .nav {
+   margin-top: 15px;
+ }
  .user-info {
    margin-top: 20px;
  }
