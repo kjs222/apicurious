@@ -8,6 +8,7 @@ class HomesController < ApplicationController
       @repos = Repository.user_repos(current_user)
       @activities = Activity.user_activity(current_user)
       @others_activities = Activity.other_users_activity(current_user)
+      @pull_requests = Issue.pull_requests(current_user)
     end
   end
 

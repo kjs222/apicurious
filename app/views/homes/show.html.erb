@@ -32,6 +32,7 @@
   <button class="showOne active-panel btn" target="Repos"><a href="javascript:void(0)">Repos</a></button>
   <button class="showOne btn" target="MyActivity"><a href="javascript:void(0)">My Commits</a></button>
   <button class="showOne btn" target="OtherActivity"><a href="javascript:void(0)">Other People's Commits</a></button>
+  <button class="showOne btn" target="OpenPR"><a href="javascript:void(0)">Open Pull Requests</a></button>
 </div>
 
 <div id="tabRepos" class="user-repos tab col-sm-9">
@@ -57,6 +58,21 @@
 <div id="tabOtherActivity" class="other-activity tab col-sm-9">
   <h3>Other People's Commits</h3>
     <%= render partial: "shared/shared_activity_list", locals: {activities: @others_activities} %>
+</div>
+
+<div id="tabOpenPR" class="tab col-sm-9">
+<h3>Open Pull Requests</h3>
+
+  <table class="table">
+  <% @pull_requests.each do |pr| %>
+    <tr><td>
+      <%= link_to pr.repository["name"], pr.html_url, class: "repo-links" %>
+      <p> <%= pr.title %></p>
+      <p> Updated <%= days_from_today pr.updated_at %> ago </p>
+    </td></tr>
+  <% end %>
+
+  </table>
 </div>
 
 <% end %>
