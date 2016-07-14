@@ -52,7 +52,7 @@
     <tr><td>
       <%= link_to repo.name, repo.html_url, class: "repo-links" %>
       <p> <%= repo.description %></p>
-      <p> Updated <%= days_from_today repo.updated_at %> ago </p>
+      <p> Updated <%= days_from_today repo.pushed_at %> ago </p>
     </td></tr>
   <% end %>
 

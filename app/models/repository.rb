@@ -12,7 +12,7 @@ class Repository < OpenStruct
   def self.user_repos(user)
     repo_hash = service(user).get_user_repos
     repo_objs = repo_hash.map {|repo| Repository.new(repo)}
-    repo_objs.sort_by { |k| k["updated_at"] }.reverse
+    repo_objs.sort_by { |k| k["pushed_at"] }.reverse
   end
 
   def self.starred_repos_count(user)

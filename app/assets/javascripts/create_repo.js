@@ -1,6 +1,6 @@
-$(document).ready(function () {
-  createRepo();
-});
+// $(document).ready(function () {
+//   createRepo();
+// });
 
 function createRepo() {
   $('#createRepo').on('click', '#submit-button', function() {

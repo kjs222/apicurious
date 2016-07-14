@@ -5,6 +5,7 @@
     <%= commit_link(activity) %>
     <p> by <%= activity.actor["login"]%></p>
     <p><%= commit_message(activity)%></p>
+
     <% if activity.updated_at %>
     <p> Updated <%=days_from_today activity.updated_at %> ago </p>
     <% else %>

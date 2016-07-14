@@ -1,4 +1,6 @@
 $(document).ready(function () {
+  createRepo();
+
   $('#tabMyActivity').hide();
   $('#tabOtherActivity').hide();
   $('#tabOpenPR').hide();
