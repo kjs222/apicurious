@@ -43,3 +43,22 @@
  .repo-links {
    font-size: 20px;
  }
+
+.showOne>a {
+  color: black;
+  text-decoration-line: none;
+}
+
+.showOne>a :visited {
+  color: black;
+  text-decoration-line: none;
+}
+ .active-panel {
+   background-color: black;
+ }
+ .active-panel>a{
+   color: white;
+ }
+ .active-panel>a :visited{
+   color: white;
+}
