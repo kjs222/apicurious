@@ -14,7 +14,7 @@ describe ActivityService do
         activity = activities.first
 
         expect(activities.count).to eq(30)
-        expect(activity["repo"]["name"]).to eq("kjs222/apicurious")
+        expect(activity["repo"]["name"]).to eq("kjs222/NEW")
       end
     end
 

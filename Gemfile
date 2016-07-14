@@ -28,9 +28,11 @@ group :development, :test do
   gem "pry", :require => "pry"
   gem 'capybara'
   gem 'byebug'
+  gem 'launchy'
 end
 
 group :test do
   gem 'webmock'
   gem 'vcr'
+
 end
