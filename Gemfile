@@ -16,6 +16,7 @@ gem 'omniauth-github'
 gem 'figaro'
 gem 'faraday'
 gem 'rspec-rails'
+gem 'jquery-turbolinks'
 
 
 group :development do
